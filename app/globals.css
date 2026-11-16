@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------
+   TAN Meringue swap-in
+   -------------------------------------------------------------------------
+   The display face currently falls back to Cormorant Garamond (loaded with
+   next/font in app/layout.tsx). To use the real brand face:
+     1. Drop the licensed file at  public/fonts/TANMeringue.woff2
+     2. Uncomment the @font-face block below.
+   Nothing else changes: "TAN Meringue" is already first in --font-display.
+
+@font-face {
+  font-family: "TAN Meringue";
+  src: url("/fonts/TANMeringue.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+/* -------------------------------------------------------------------------
+   Brand palette (from the Figma branding frame) + semantic tokens
+   ------------------------------------------------------------------------- */
+:root {
+  --cream: #e3e1d8;
+  --sage: #b6b897;
+  --sage-deep: #7a8162; /* sage, darkened enough to read on cream */
+  --mauve: #856d86;
+  --lilac: #c4b3c5;
+  --brown: #654b3b;
+  --brown-deep: #4a3628;
+
+  --canvas: var(--cream);
+  --surface: #edebe4;
+  --ink: var(--brown);
+  --ink-soft: #7a6253;
+  --accent: var(--sage-deep);
+  --on-accent: var(--cream);
+  --kicker: #765f77;
+  --line: var(--sage);
+  --tint: var(--mauve);
+  --pop: var(--lilac);
+  color-scheme: light;
+}
+
+@theme {
+  /* Fonts: the --font-cormorant / --font-source-sans variables come from
+     next/font in app/layout.tsx. */
+  --font-display: "TAN Meringue", var(--font-cormorant), "Playfair Display",
+    Georgia, serif;
+  --font-sans: var(--font-source-sans), "Source Sans Pro", system-ui,
+    sans-serif;
+
+  /* Semantic colours */
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-kicker: var(--kicker);
+  --color-line: var(--line);
+  --color-tint: var(--tint);
+  --color-pop: var(--pop);
+
+  /* Fixed brand colours */
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-mauve: var(--mauve);
+  --color-lilac: var(--lilac);
+  --color-brown: var(--brown);
+  --color-brown-deep: var(--brown-deep);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--lilac);
+  color: var(--brown-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Underline that grows from the left on hover / focus */
+.link-underline {
+  background-image: linear-gradient(var(--tint), var(--tint));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
