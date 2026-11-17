@@ -1,3 +1,5 @@
+import { asset } from "./asset";
+
 // All site copy lives here so it can be edited without touching layout code.
 
 export const site = {
@@ -7,7 +9,7 @@ export const site = {
   githubLabel: "github.com/megdcosta",
   linkedin: "https://linkedin.com/in/megdcosta",
   linkedinLabel: "linkedin.com/in/megdcosta",
-  resume: "/Megan_DCosta_Resume.pdf",
+  resume: asset("/Megan_DCosta_Resume.pdf"),
   intro:
     "Software Engineering student at the University of Guelph with co-op experience across cybersecurity, data, and quality assurance.",
 };
@@ -43,7 +45,7 @@ export type Role = {
 export const roles: Role[] = [
   {
     id: "cibc",
-    logo: "/logos/cibc.jpeg",
+    logo: asset("/logos/cibc.jpeg"),
     title: "Information Security Coordinator Co-op",
     company: "CIBC",
     dates: "Jan 2026 – Apr 2026",
@@ -56,7 +58,7 @@ export const roles: Role[] = [
   },
   {
     id: "elh",
-    logo: "/logos/elh.jpeg",
+    logo: asset("/logos/elh.jpeg"),
     title: "Data Analyst Co-op",
     company: "Experiential Learning Hub, University of Guelph",
     dates: "May 2025 – Aug 2025",
@@ -69,7 +71,7 @@ export const roles: Role[] = [
   },
   {
     id: "camis",
-    logo: "/logos/camis.jpeg",
+    logo: asset("/logos/camis.jpeg"),
     title: "Quality Assurance Co-op",
     company: "Camis Inc",
     dates: "Sept 2024 – Dec 2024",
@@ -82,7 +84,7 @@ export const roles: Role[] = [
   },
   {
     id: "deloitte",
-    logo: "/logos/deloitte.jpeg",
+    logo: asset("/logos/deloitte.jpeg"),
     title: "Cyber Security Risk Advisory Intern",
     company: "Deloitte",
     dates: "May 2024 – Aug 2024",
@@ -120,6 +122,6 @@ export const projects: Project[] = [
       { label: "Live App", href: "https://frij.io", kind: "live" },
       { label: "GitHub", href: "https://github.com/megdcosta", kind: "github" },
     ],
-    screenshot: "/projects/frij.webp",
+    screenshot: asset("/projects/frij.webp"),
   },
 ];
